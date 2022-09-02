@@ -1,7 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -30,7 +30,7 @@ project "GLFW"
 		pic "On"
 
 		systemversion "latest"
-		
+
 		files
 		{
 			"src/x11_init.c",
@@ -67,8 +67,8 @@ project "GLFW"
 			"src/osmesa_context.c"
 		}
 
-		defines 
-		{ 
+		defines
+		{
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
@@ -84,9 +84,4 @@ project "GLFW"
 
 	filter "configurations:Release"
 		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		runtime "Release"
-		optimize "on"
-        symbols "off"
+		symbols "on"
